@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   // Fetch all users once
   useEffect(() => {
-    API.get('/users')
+    API.get('/user/users')
       .then(res => setUsers(res.data))
       .catch(err => console.error('Failed to load users', err));
   }, []);
