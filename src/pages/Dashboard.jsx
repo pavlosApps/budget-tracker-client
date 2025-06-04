@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from '../api';
+import { Link } from 'react-router-dom'; // make sure this is at the top
 
 export default function Dashboard() {
   const [transactions, setTransactions] = useState([]);
