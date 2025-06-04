@@ -32,7 +32,12 @@ const total = transactions.reduce((sum, tx) => sum + tx.amount, 0);
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">📊 Budget Tracker</h1>
-
+  <Link
+    to="/add"
+    className="flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+  >
+    <span>➕</span> <span className="hidden sm:inline">Add Transaction</span>
+  </Link>
       <div className="mb-4">
         <label htmlFor="userSelect" className="mr-2 font-medium">Select User:</label>
         <select
@@ -62,7 +67,7 @@ const total = transactions.reduce((sum, tx) => sum + tx.amount, 0);
                 <th className="px-4 py-2 text-left border">Type</th>
                 <th className="px-4 py-2 text-left border">Category</th>
                 <th className="px-4 py-2 text-right border">Amount</th>
-                <th className="px-4 py-2 text-left border">Description</th>
+                <th className="px-4 py-2 text-left border">note</th>
                 <th className="px-4 py-2 text-left border">User</th>
               </tr>
             </thead>
@@ -73,7 +78,7 @@ const total = transactions.reduce((sum, tx) => sum + tx.amount, 0);
                   <td className="px-4 py-2">{tx.type}</td>
                   <td className="px-4 py-2 text-red-600 font-semibold">{tx.category}</td>
                   <td className="px-4 py-2 text-right">€{tx.amount.toFixed(2)}</td>
-                  <td className="px-4 py-2">{tx.description || '-'}</td>
+                  <td className="px-4 py-2">{tx.note || '-'}</td>
                   <td className="px-4 py-2">{tx.user?.email || '-'}</td>
                 </tr>
               ))}
