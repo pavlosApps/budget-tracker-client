@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: budget-tracker-client
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: serve -s dist
+    staticPublishPath: dist
