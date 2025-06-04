@@ -6,6 +6,7 @@ export default function Dashboard() {
   const [users, setUsers] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState(1);
   const [loading, setLoading] = useState(true);
+const total = transactions.reduce((sum, tx) => sum + tx.amount, 0);
 
   // Fetch all users once
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function Dashboard() {
                 <th className="px-4 py-2 text-left border">Type</th>
                 <th className="px-4 py-2 text-left border">Category</th>
                 <th className="px-4 py-2 text-right border">Amount</th>
-                <th className="px-4 py-2 text-left border">Note</th>
+                <th className="px-4 py-2 text-left border">Description</th>
                 <th className="px-4 py-2 text-left border">User</th>
               </tr>
             </thead>
@@ -70,9 +71,9 @@ export default function Dashboard() {
                 <tr key={tx.id} className="border-t hover:bg-gray-50">
                   <td className="px-4 py-2">{tx.date}</td>
                   <td className="px-4 py-2">{tx.type}</td>
-                  <td className="px-4 py-2">{tx.category}</td>
+                  <td className="px-4 py-2 text-red-600 font-semibold">{tx.category}</td>
                   <td className="px-4 py-2 text-right">€{tx.amount.toFixed(2)}</td>
-                  <td className="px-4 py-2">{tx.note || '-'}</td>
+                  <td className="px-4 py-2">{tx.description || '-'}</td>
                   <td className="px-4 py-2">{tx.user?.email || '-'}</td>
                 </tr>
               ))}
